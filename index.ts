@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { Compiler, Compilation } from 'webpack';
-import { RawSource } from 'webpack-sources';
 
 interface InjectAssetsListPluginOption {
   name?: string;
@@ -22,7 +21,6 @@ class InjectAssetsListPlugin {
       ...InjectAssetsListPlugin.DEFAULT_OPTIONS,
       ...options,
     };
-    console.log(options);
   }
 
   /**
@@ -46,7 +44,6 @@ class InjectAssetsListPlugin {
         (data: any, cb: Function) => {
           const assets = compilation
             .getAssets()
-            .filter(({ source }) => source instanceof RawSource) // Only webpack RawSource
             .filter(({ name }) => (ignorePattern ? !name.match(ignorePattern) : true)) // Ignore pattern filtering
             .filter(({ name }) => (allowPattern ? name.match(allowPattern) : true)) // Allow pattern filtering
             .map(({ name }) => publicPath + name);

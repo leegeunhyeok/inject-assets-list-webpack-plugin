@@ -159,6 +159,8 @@ npm run build
 
 ## Changelog
 
+- `1.0.3` (2020.11.09)
+  - Remove `RawSource` filtering logic
 - `1.0.2` (2020.11.09)
   - FIXED: Combine default options at initialization
   - Update README.md
