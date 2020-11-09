@@ -97,8 +97,8 @@ module.exports = {
     new HtmlWebpackPlugin(),
     new InjectAssetsListWebpackPlugin({
       name: 'myAssets',
-      allowPattern: /[png|jpg]/, // Allow `png`, `jpg`
-      ignorePattern: /[gif|ttf]/, // ignoring `gif`, `ttf` files
+      allowPattern: /(png|jpg)/, // Allow `png`, `jpg`
+      ignorePattern: /(gif|ttf)/, // ignoring `gif`, `ttf` files
     }),
   ],
 };
