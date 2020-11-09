@@ -75,10 +75,11 @@ Assets list value format: `<publicPath>name.ext` (eg. /img/banana.51a48343.png)
 You can pass a hash of configuration options to `inject-assets-list-webpack-plugin`.
 Allowed values are as follows:
 
-|        Name         |    Type    |  Default   | Description                             |
-| :-----------------: | :--------: | :--------: | :-------------------------------------- |
-|     **`name`**      | `{String}` | `__assets` | The name to use for the global variable |
-| **`ignorePattern`** | `{RegExp}` | undefined  | Regular expression for ignoring assets  |
+|        Name         |    Type    |  Default   | Description                              |
+| :-----------------: | :--------: | :--------: | :--------------------------------------- |
+|     **`name`**      | `{String}` | `__assets` | The name to use for the global variable  |
+| **`allowPattern`**  | `{RegExp}` | undefined  | Regular expression for allow assets name |
+| **`ignorePattern`** | `{RegExp}` | undefined  | Regular expression for ignoring assets   |
 
 Here's an example webpack config illustrating how to use these options
 
@@ -96,6 +97,7 @@ module.exports = {
     new HtmlWebpackPlugin(),
     new InjectAssetsListWebpackPlugin({
       name: 'myAssets',
+      allowPattern: /[png|jpg]/, // Allow `png`, `jpg`
       ignorePattern: /[gif|ttf]/, // ignoring `gif`, `ttf` files
     }),
   ],
@@ -144,6 +146,24 @@ function preload() {
 
 preload(); // 5 resource(s) loaded.
 ```
+
+## Development
+
+```bash
+# Install dependencies
+npm i
+
+# Build module
+npm run build
+```
+
+## Changelog
+
+- `1.0.1` (2020.11.09)
+  - Add `allowPattern` option
+  - Change `name` property to optional
+- `1.0.0` (2020.11.09)
+  - First Release!
 
 ## Contributors
 

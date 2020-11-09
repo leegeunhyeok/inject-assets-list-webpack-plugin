@@ -3,7 +3,8 @@ import { Compiler, Compilation } from 'webpack';
 import { RawSource } from 'webpack-sources';
 
 interface InjectAssetsListPluginOption {
-  name: string;
+  name?: string;
+  allowPattern?: RegExp;
   ignorePattern?: RegExp;
 }
 
@@ -11,6 +12,7 @@ class InjectAssetsListPlugin {
   private static __NAME = 'InjectAssetsListPlugin';
   private static DEFAULT_OPTIONS = {
     name: '__assets',
+    allowPattern: undefined,
     ignorePattern: undefined,
   };
 
@@ -29,7 +31,7 @@ class InjectAssetsListPlugin {
   }
 
   apply(compiler: Compiler) {
-    const { ignorePattern } = this.options;
+    const { allowPattern, ignorePattern } = this.options;
     const publicPath = compiler.options.output.publicPath;
 
     compiler.hooks.compilation.tap(InjectAssetsListPlugin.__NAME, (compilation: Compilation) => {
@@ -41,6 +43,7 @@ class InjectAssetsListPlugin {
             .getAssets()
             .filter(({ source }) => source instanceof RawSource) // Only webpack RawSource
             .filter(({ name }) => (ignorePattern ? !name.match(ignorePattern) : true)) // Ignore pattern filtering
+            .filter(({ name }) => (allowPattern ? name.match(allowPattern) : true)) // Allow pattern filtering
             .map(({ name }) => publicPath + name);
 
           // Find head tag index
