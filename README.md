@@ -31,9 +31,9 @@ config as follows:
 **webpack.config.js**
 
 ```js
-// !! Must using with HtmlWebpackPlugin
+// !! HtmlWebpackPlugin required
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin');
+const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin').default;
 
 module.exports = {
   entry: 'index.js',
@@ -58,7 +58,7 @@ This will generate a file `dist/index.html` containing the following
       var __assets = [
         '/img/apple.707709ec.png',
         '/img/banana.51a48343.png',
-        /* Webpack assets path */
+        /* Webpack assets */
       ];
     </script>
   </head>
