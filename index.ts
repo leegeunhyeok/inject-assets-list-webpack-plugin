@@ -15,10 +15,15 @@ class InjectAssetsListPlugin {
     allowPattern: undefined,
     ignorePattern: undefined,
   };
+  private options: InjectAssetsListPluginOption;
 
-  constructor(
-    private options: InjectAssetsListPluginOption = InjectAssetsListPlugin.DEFAULT_OPTIONS,
-  ) {}
+  constructor(options: InjectAssetsListPluginOption) {
+    this.options = {
+      ...InjectAssetsListPlugin.DEFAULT_OPTIONS,
+      ...options,
+    };
+    console.log(options);
+  }
 
   /**
    * Generate script tag with assets list variable.

@@ -33,7 +33,7 @@ config as follows:
 ```js
 // !! HtmlWebpackPlugin required
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin').default;
+const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin');
 
 module.exports = {
   entry: 'index.js',
