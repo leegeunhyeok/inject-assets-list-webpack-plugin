@@ -8,14 +8,17 @@ export default [
     input: 'index.ts',
     output: [
       {
-        file: `dist/index.js`,
+        file: `dist/index.cjs.js`,
+        exports: 'default',
         format: 'cjs',
+      },
+      {
+        file: `dist/index.esm.js`,
+        format: 'es',
       },
     ],
     plugins: [
-      resolve({
-        extensions: ['js'],
-      }),
+      resolve(),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/env'],
