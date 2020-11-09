@@ -1,0 +1,39 @@
+{
+  "name": "inject-assets-list-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Inject assets list into your HTML template",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c ./build/rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leegeunhyeok/inject-assets-list-webpack-plugin.git"
+  },
+  "author": "Geunhyeok LEE <dev.ghlee@gmail.com> (https://github.com/leegeunhyeok)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leegeunhyeok/inject-assets-list-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/leegeunhyeok/inject-assets-list-webpack-plugin#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "rollup": "^2.33.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.0.5"
+  },
+  "keywords": [
+    "webpack",
+    "webpack-plugin",
+    "assets",
+    "preload"
+  ]
+}
